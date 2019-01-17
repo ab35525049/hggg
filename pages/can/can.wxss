@@ -1,0 +1,7 @@
+/* pages/can/can.wxss */
+view{
+  text-align: center;
+}
+text{
+  width: 100%;
+}

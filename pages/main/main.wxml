@@ -1,0 +1,4 @@
+<text>{{text_1}}</text>
+<button bindtap='add'>+1</button>
+<button bindtap='jian'>-1</button>
+<text>{{iddd}}</text>

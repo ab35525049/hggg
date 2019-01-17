@@ -1,0 +1,29 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="userinfo">
+    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+    <block wx:else>
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    </block>
+  </view>
+  <view class="usermotto">
+    <text class="user-motto">{{motto}}</text>
+  </view>
+  <view>
+    <button class='btn' plain="true" open-type='getUserInfo' bindgetuserinfo="btn_user">{{btn_user_name}}</button>
+    <view class='user'>
+    <open-data type='userNickName'></open-data>
+    <open-data type='userAvatarUrl'></open-data>
+    <open-data type='userLanguage'></open-data>
+    </view>
+    <view>
+        <button bindtap="url_text" plain>{{boorr}}</button>
+        <navigator url='../main/main?id=1'><button bindtap="url_text_1" plain>{{fly}}</button></navigator>
+        <navigator url="../can/can?can_t=画布测试"><button bindtap="url_text_2" plain>{{can}}</button></navigator>
+        <navigator url="../map/map?map_t=地图测试"><button bindtap="url_text_2" plain>{{map}}</button></navigator>
+        <navigator url="../cove/cover_view"><button bindtap="url_text_2" plain>cove</button></navigator>
+        <navigator url="../map_form/map_form"><button bindtap="url_text_2" plain>提交位置</button></navigator>
+    </view>
+  </view>
+</view>

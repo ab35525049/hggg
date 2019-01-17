@@ -1,0 +1,30 @@
+<view>{{map_t}}</view>
+<view  class='map_v'>
+<map
+  id="map"
+  scale="2"
+  bindcontroltap="controltap"
+  markers="{{markers}}"
+  bindmarkertap="markertap"
+  bindregionchange="regionchange"
+  show-location
+  style="width: 100%; height: 400px;"
+></map>
+
+<button bindtap='go_tap'>选择去的地方</button>
+
+</view>
+ <!-- controls="{{controls}}" -->
+ <block wx:if='{{map_dis==1}}'>
+ <block wx:for="{{map_}}" wx:for-index="m_index" wx:for-item="m_item">
+ <view >
+ <!-- <view>{{m_item.id}}</view> -->
+ <view bindtap='m_tap' data-name='{{m_index}}'>{{m_item.name}}</view>
+ <!-- <view>{{m_item.latitude}}</view> -->
+ <!-- <view>{{m_item.longitude}}</view> -->
+ <!-- <view>{{m_item}}</view> -->
+ </view>
+ </block>
+ </block>
+ <button bindtap='go_tap_'>导航</button>
+ 
