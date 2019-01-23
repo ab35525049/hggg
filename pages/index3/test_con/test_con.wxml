@@ -1,0 +1,3 @@
+<!--pages/index3/test_con/test_con.wxml-->
+<text>{{paramA}}</text>
+<text>{{paramB}}</text>

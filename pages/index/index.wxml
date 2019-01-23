@@ -24,6 +24,8 @@
         <navigator url="../map/map?map_t=地图测试"><button bindtap="url_text_2" plain>{{map}}</button></navigator>
         <navigator url="../cove/cover_view"><button bindtap="url_text_2" plain>cove</button></navigator>
         <navigator url="../map_form/map_form"><button bindtap="url_text_2" plain>提交位置</button></navigator>
+        <navigator url="{{from_}}"><button bindtap="url_text_6" plain>表单提交</button></navigator>
+        <navigator url="../picker/picker"><button bindtap="url_text_6" plain>picker</button></navigator>
     </view>
   </view>
 </view>

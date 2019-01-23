@@ -1,0 +1,11 @@
+姓名:<input value='' bindinput="bin_na1"></input>
+单号:<input value='' bindinput="bin_na2"></input>
+<navigator url='../kuaidi/kuaidi'>
+
+<button bindtap='go'>查询</button>
+
+
+
+</navigator>
+<view>name,{{name}}</view>
+<view>num,{{num}}</view>

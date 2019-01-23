@@ -1,30 +1,23 @@
-<view>{{map_t}}</view>
-<view  class='map_v'>
-<map
-  id="map"
-  scale="2"
-  bindcontroltap="controltap"
-  markers="{{markers}}"
-  bindmarkertap="markertap"
-  bindregionchange="regionchange"
-  show-location
-  style="width: 100%; height: 400px;"
-></map>
+<view class='go_box'>
+  <view>{{map_t}}</view>
+  <view bindtap='go_tap' class='go_tap'>{{map_diss}}</view>
+</view>
+<view class='map_v'>
+  <map id="map" scale="5" latitude="28.099994" longitude="113.324520" bindcontroltap="controltap" markers="{{markers}}" bindmarkertap="markertap" controls="{{controls}}" bindregionchange="regionchange" show-location style="width: 100%; height: 500px;"></map>
 
-<button bindtap='go_tap'>选择去的地方</button>
+  <!-- controls="{{controls}}" -->
+  <block wx:if='{{map_dis==1}}'>
+    <view class='map_box'>
+    <view class='map_box_'>
+      <block wx:for="{{map_}}" wx:for-index="m_index" wx:for-item="m_item">
+        <view>
+          <view bindtap='m_tap' data-name='{{m_index}}' class="{{mp==m_index?'t':'f'}}">{{m_item.name}}</view>
+        </view>
+      </block>
+      </view>
+      <button bindtap='go_tap_'>导航</button>
+    </view>
+  </block>
+
 
 </view>
- <!-- controls="{{controls}}" -->
- <block wx:if='{{map_dis==1}}'>
- <block wx:for="{{map_}}" wx:for-index="m_index" wx:for-item="m_item">
- <view >
- <!-- <view>{{m_item.id}}</view> -->
- <view bindtap='m_tap' data-name='{{m_index}}'>{{m_item.name}}</view>
- <!-- <view>{{m_item.latitude}}</view> -->
- <!-- <view>{{m_item.longitude}}</view> -->
- <!-- <view>{{m_item}}</view> -->
- </view>
- </block>
- </block>
- <button bindtap='go_tap_'>导航</button>
- 

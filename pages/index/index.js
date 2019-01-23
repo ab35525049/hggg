@@ -14,7 +14,8 @@ Page({
     boorr:'现在是true',
     fly:'点我起飞',
     can:'画布测试',
-    map:'地图测试'
+    map:'地图测试',
+    from_:''
   },
   //事件处理函数
   bindViewTap: function() {
@@ -22,8 +23,22 @@ Page({
       url: '../logs/logs'
     })
   },
- 
+  url_text_6:function(){
+    var _this = this;
+    var math = Math.floor(Math.random() * 1000)
+    if(math>=500){
+      _this.setData({
+        from_:'../from/from'
+      })
+    }else{
+      _this.setData({
+        from_: '../from1/from1'
+      })
+    }
+  },
   onLoad: function (options) {
+
+    this.url_text_6()
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,
@@ -52,6 +67,7 @@ Page({
     }
   },
   getUserInfo: function(e) {
+    withCredentials: true,
     console.log(e)
     app.globalData.userInfo = e.detail.userInfo
     this.setData({
@@ -59,10 +75,30 @@ Page({
       hasUserInfo: true
     })
   },
-  btn_user:function(e){
-    console.log(e.detail.userInfo)
-    console.log(e.detail.userInfo.city)
-    console.log(e.detail.userInfo.nickName)
+  btn_user: function (e){
+    var  _this = this
+    // wx.login({
+    //   success(res) {
+    //     if (res.code) {
+    //       //发起网络请求
+    //       wx.request({
+    //         url: 'https://jz.mlp-hn.com/jiekou/info.php',
+    //         data: {code: res.code},
+    //         header:{
+    //           'content-type':'application/json' 
+    //         },
+    //         success:function(res){
+    //           _this.setData({
+    //             fafd:JSON.parse(res.data)
+    //           })
+    //           console.log(JSON.parse(res.data))
+    //         }
+    //       })
+    //     } else {
+    //       console.log('登录失败！' + res.errMsg)
+    //     }
+    //   }
+    // })
     this.setData({
       btn_user_name: e.detail.userInfo.nickName
     })

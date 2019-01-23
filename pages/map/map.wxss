@@ -1,5 +1,39 @@
 /* pages/map/map.wxss */
 .map_v{
-  padding: 15rpx;
   background-color: #ffffff;
+  padding: 0 15rpx 0 15rpx;
+}
+.go_tap{
+  /* float: right; */
+}
+.go_box{
+  display: flex;
+  justify-content: space-between;
+  padding: 15rpx;
+  position: relative;
+}
+.map_box{
+  position: absolute;
+  width: 600rpx;
+  left: calc(50% - 600rpx/2);
+  top: 40%;
+  background: #ffffff;
+}
+.map_box_{
+  padding: 15rpx;
+  height: 160rpx;
+  overflow-y: scroll;
+}
+.map_box_ view{
+  height: 80rpx;
+  line-height: 80rpx;
+  text-indent: 10rpx;
+}
+.f{
+  background-color: #ffffff;
+
+}
+
+.t{
+  background-color: #eeeeee;
 }

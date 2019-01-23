@@ -5,12 +5,22 @@ Page({
     map_t: '',
     map_: '',
     map_dis:0,
-    mp:''
+    mp:'0',
+    map_diss:"选择要去的地方"
   },
   go_tap: function () {
-    this.setData({
-      map_dis:1
-    })
+    if(!(this.data.map_dis==1)){
+      this.setData({
+        map_dis: 1,
+        map_diss: '再次点击关闭'
+      })
+    }else{
+      this.setData({
+        map_dis: 0,
+        map_diss: '选择要去的地方'
+      })
+    }
+   
     // let latitude = 23.099994;
     // let longitude = 113.324520;
     // let name = '腾讯';
@@ -68,7 +78,7 @@ Page({
       width: 50,
       height: 50,
       name: point.name,
-      scale: '10',
+      scale: '30',
       address: point.address,
       callout: {
         content: point.name,
@@ -103,15 +113,15 @@ Page({
     let mp = e.currentTarget.dataset.name
     console.log(mp)
     this.setData({
-      mp:mp
+      mp:mp,
     })
   },
   go_tap_:function(){
     // console.log(this.data.mp)
     var m = this.data.map_[this.data.mp]
     console.log(m)
-    let latitude = parseInt(m.latitude);
-    let longitude = parseInt(m.longitude);
+    let latitude = Number(m.latitude);
+    let longitude = Number(m.longitude);
     let name = m.name;
     // let address = '腾讯微信总部';
     wx.getLocation({//获取当前经纬度
@@ -122,6 +132,7 @@ Page({
           longitude: longitude,//要去的经度-地址
           name: name,
           // address: address
+          
         })
       }
     })

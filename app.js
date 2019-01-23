@@ -8,8 +8,29 @@ App({
 
     // 登录
     wx.login({
+      withCredentials: true,
       success: res => {
+        var code = res.code
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
+          wx: wx.request({
+            url: 'https://wyjk.etshfw.cn/test/getcode.php',
+            data: { 
+              code: code,
+              appID: 'wx40dc20c7d4405904',
+              secret: '224f548ffe52916043ec53284e79792d'
+            },
+            header: {
+              'content-type': 'application/json'
+            },
+            method:'GET',
+            success: function (res) {
+              // console.log(JSON.parse(res.data))
+              console.log(res)
+              console.log(res.data)
+            },
+            fail: function (res) {},
+            complete: function (res) { },
+          })     
       }
     })
     // 获取用户信息
@@ -26,7 +47,9 @@ App({
               // 所以此处加入 callback 以防止这种情况
               if (this.userInfoReadyCallback) {
                 this.userInfoReadyCallback(res)
+                console.log(this.globalData.userInfo)
               }
+
             }
           })
         }

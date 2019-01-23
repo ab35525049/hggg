@@ -6,13 +6,38 @@
     "pages/can/can",
     "pages/map/map",
     "pages/cove/cover_view",
-    "pages/map_form/map_form"
+    "pages/map_form/map_form",
+    "pages/from/from",
+    "pages/from1/from1",
+    "pages/index2/idnex2/index2",
+    "pages/index3/index3/index3",
+    "pages/index3/test_con/test_con",
+    "pages/index2/kuaidi/kuaidi",
+    "pages/picker/picker"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "WeChat",
     "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "position": "top",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/index2/idnex2/index2",
+        "text": "第二"
+      },
+      {
+        "pagePath": "pages/index3/index3/index3",
+        "text": "第三"
+      }
+    ],
+    "selectedColor": "red"
   },
   "permission": {
     "scope.userLocation": {

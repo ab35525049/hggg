@@ -1,0 +1,5 @@
+
+
+<navigator url='../test_con/test_con?paramA=123&paramB=xyz'>
+<button >点我自定义</button>
+</navigator>
