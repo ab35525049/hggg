@@ -4,23 +4,25 @@ Page({
     hasMarkers: false,
     map_t: '',
     map_: '',
-    map_dis:0,
-    mp:'0',
-    map_diss:"选择要去的地方"
+    map_dis: 0,
+    mp: '0',
+    laa: '',
+    lnn: '',
+    map_diss: "选择要去的地方"
   },
   go_tap: function () {
-    if(!(this.data.map_dis==1)){
+    if (!(this.data.map_dis == 1)) {
       this.setData({
         map_dis: 1,
         map_diss: '再次点击关闭'
       })
-    }else{
+    } else {
       this.setData({
         map_dis: 0,
         map_diss: '选择要去的地方'
       })
     }
-   
+
     // let latitude = 23.099994;
     // let longitude = 113.324520;
     // let name = '腾讯';
@@ -38,27 +40,40 @@ Page({
     // })
   },
   onLoad: function (options) {
+    wx.getLocation({
+      type: 'wgs84',
+      success:(res)=>{
+        let laa = Number(res.latitude);
+        let lnn = Number(res.longitude);
+        this.setData({
+          laa: laa,
+          lnn: lnn,
+        })
+      },
+    });
+
     this.setData({
       map_t: this.options.map_t,
     })
     wx.request({
-      url: 'http://localhost:3000/127',
+      // url: 'http://localhost:3000/127',
+      url: 'https://jz.mlp-hn.com/jiekou/map_.php',
       success: (res) => {
-        // console.log(res)
-        // console.log(res.data)
+        console.log(res)
+        console.log(res.data)
         // console.log(res.data.data)
         var markers = [];
-        for (let i = 0; i < res.data.data.length; i++) {
+        for (let i = 0; i < res.data.length; i++) {
           // console.log(res.data.data[i].id)
           // console.log(res.data.data[i].name)
           // console.log(res.data.data[i].longitude)
           // console.log(res.data.data[i].latitude)
-          var markerss = this.createMarker(res.data.data[i])
+          var markerss = this.createMarker(res.data[i])
           markers.push(markerss)
           // console.log('321', markers)
         }
         this.setData({
-          map_: res.data.data,
+          map_: res.data,
           markers: markers
         })
         // console.log('999', this.data.map_)
@@ -67,8 +82,8 @@ Page({
     // console.log('9991', this.data.map_)
   },
   createMarker(point) {
-    let latitude = point.latitude;
-    let longitude = point.longitude;
+    let latitude = point.lat;
+    let longitude = point.lng;
     let marker = {
       // iconPath: "/resources/others.png",
       id: point.id || 0,
@@ -77,11 +92,11 @@ Page({
       longitude: longitude,
       width: 50,
       height: 50,
-      name: point.name,
+      name: point.storename,
       scale: '30',
       address: point.address,
       callout: {
-        content: point.name,
+        content: point.storename,
         color: "#DDDFFG",
         fontSize: "16",
         bgColor: "#ffffff",
@@ -109,14 +124,14 @@ Page({
   // bindcontroltap(e){
   //   console.log("3", e)
   // }
-  m_tap:function(e){
+  m_tap: function (e) {
     let mp = e.currentTarget.dataset.name
     console.log(mp)
     this.setData({
-      mp:mp,
+      mp: mp,
     })
   },
-  go_tap_:function(){
+  go_tap_: function () {
     // console.log(this.data.mp)
     var m = this.data.map_[this.data.mp]
     console.log(m)
@@ -132,9 +147,9 @@ Page({
           longitude: longitude,//要去的经度-地址
           name: name,
           // address: address
-          
+
         })
       }
     })
   },
-  })
+})

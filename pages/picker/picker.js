@@ -76,7 +76,7 @@ Page({
     })
   },
   bindMultiPickerChange(e) {
-    console.log('picker发送选择改变，携带值为', e.detail.value)
+    console.log('picker123231发送选择改变，携带值为', e.detail.value)
     this.setData({
       multiIndex: e.detail.value
     })

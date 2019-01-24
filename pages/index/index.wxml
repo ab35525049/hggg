@@ -1,12 +1,6 @@
 <!--index.wxml-->
 <view class="container">
-  <view class="userinfo">
-    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
-    <block wx:else>
-      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-    </block>
-  </view>
+
   <view class="usermotto">
     <text class="user-motto">{{motto}}</text>
   </view>
@@ -26,6 +20,19 @@
         <navigator url="../map_form/map_form"><button bindtap="url_text_2" plain>提交位置</button></navigator>
         <navigator url="{{from_}}"><button bindtap="url_text_6" plain>表单提交</button></navigator>
         <navigator url="../picker/picker"><button bindtap="url_text_6" plain>picker</button></navigator>
+        <navigator url="../anm/anm"><button bindtap="url_text_6" plain>anm</button></navigator>
     </view>
   </view>
 </view>
+<block wx:if="{{get_user}}">
+<view class='get_user' animation="{{animation_user}}"> 
+  <view class="userinfo">
+    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 点击授权 </button>
+    <block wx:else>
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+      <button plain bindtap='get_user_'>欢迎进入</button>
+    </block>
+  </view>
+</view>
+</block>

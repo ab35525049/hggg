@@ -62,3 +62,4 @@
     </view>
   </picker>
 </view>
+<navigator url='./pickerr/pickerr'><button plain>点击自己写</button></navigator>

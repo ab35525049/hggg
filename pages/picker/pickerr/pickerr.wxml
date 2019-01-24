@@ -1,0 +1,7 @@
+<view>
+<view>选择</view>
+    <picker mode="multiSelector" range="{{r_arr}}" value='{{r_index}}' bindchange="ok" bindcolumnchange="_ok" >
+    <view>当前选择：
+    {{r_arr[0][r_index[0]]}}，{{r_arr[1][r_index[1]]}}，{{r_arr[2][r_index[2]]}}
+    </view></picker>
+</view>

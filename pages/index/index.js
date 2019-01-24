@@ -8,29 +8,54 @@ Page({
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
-    btn:'点我',
-    btn_user_name:'点击我获取自己的名字',
-    boor:true,
-    boorr:'现在是true',
-    fly:'点我起飞',
-    can:'画布测试',
-    map:'地图测试',
-    from_:''
+    btn: '点我',
+    btn_user_name: '点击我获取自己的名字',
+    boor: true,
+    boorr: '现在是true',
+    fly: '点我起飞',
+    can: '画布测试',
+    map: '地图测试',
+    from_: '',
+    // 遮罩层
+    get_user: true,
+    // 动画
+    animation_user: {}
+  },
+  get_user_: function () {
+    // 创建动画是咧
+    const animation = wx.createAnimation({
+      duration: 3000,
+      timingFunction: "linear",
+    })
+    this.animation = animation,
+    // 透明度变0 step()结束
+      animation.opacity(0).step()
+    this.setData({
+      // export导出到
+      animation_user: animation.export(),
+    })
+    // 动画结束后关闭遮罩层
+    setTimeout(function(){
+        this.setData({
+          get_user: false,
+        })
+        // bind(this)
+    }.bind(this),3000)
   },
   //事件处理函数
-  bindViewTap: function() {
+  bindViewTap: function () {
     wx.navigateTo({
       url: '../logs/logs'
     })
   },
-  url_text_6:function(){
+  url_text_6: function () {
     var _this = this;
     var math = Math.floor(Math.random() * 1000)
-    if(math>=500){
+    if (math >= 500) {
       _this.setData({
-        from_:'../from/from'
+        from_: '../from/from'
       })
-    }else{
+    } else {
       _this.setData({
         from_: '../from1/from1'
       })
@@ -44,7 +69,7 @@ Page({
         userInfo: app.globalData.userInfo,
         hasUserInfo: true
       })
-    } else if (this.data.canIUse){
+    } else if (this.data.canIUse) {
       // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
       // 所以此处加入 callback 以防止这种情况
       app.userInfoReadyCallback = res => {
@@ -66,17 +91,17 @@ Page({
       })
     }
   },
-  getUserInfo: function(e) {
+  getUserInfo: function (e) {
     withCredentials: true,
-    console.log(e)
+      console.log(e)
     app.globalData.userInfo = e.detail.userInfo
     this.setData({
       userInfo: e.detail.userInfo,
       hasUserInfo: true
     })
   },
-  btn_user: function (e){
-    var  _this = this
+  btn_user: function (e) {
+    var _this = this
     // wx.login({
     //   success(res) {
     //     if (res.code) {
@@ -104,13 +129,13 @@ Page({
     })
   },
   url_text: function () {
-    if(this.data.boor){
+    if (this.data.boor) {
       this.setData({
-        boor:false,
-        boorr:'现在是false'
+        boor: false,
+        boorr: '现在是false'
       })
       console.log(this.data.boor)
-    }else{
+    } else {
       this.setData({
         boor: true,
         boorr: '现在是true'

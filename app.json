@@ -13,7 +13,9 @@
     "pages/index3/index3/index3",
     "pages/index3/test_con/test_con",
     "pages/index2/kuaidi/kuaidi",
-    "pages/picker/picker"
+    "pages/picker/picker",
+    "pages/picker/pickerr/pickerr",
+    "pages/anm/anm"
   ],
   "window": {
     "backgroundTextStyle": "light",
