@@ -11,6 +11,7 @@ App({
       withCredentials: true,
       success: res => {
         var code = res.code
+        console.log(code)
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
           wx: wx.request({
             url: 'https://wyjk.etshfw.cn/test/getcode.php',

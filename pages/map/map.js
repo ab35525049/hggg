@@ -3,7 +3,7 @@ Page({
     markers: [],
     hasMarkers: false,
     map_t: '',
-    map_: '',
+    map_: {},
     map_dis: 0,
     mp: '0',
     laa: '',
@@ -87,7 +87,7 @@ Page({
     let marker = {
       // iconPath: "/resources/others.png",
       id: point.id || 0,
-      name: point.name || '',
+      name: point.storename || '',
       latitude: latitude,
       longitude: longitude,
       width: 50,
@@ -135,9 +135,11 @@ Page({
     // console.log(this.data.mp)
     var m = this.data.map_[this.data.mp]
     console.log(m)
-    let latitude = Number(m.latitude);
-    let longitude = Number(m.longitude);
-    let name = m.name;
+    let latitude = Number(m.lat);
+    let longitude = Number(m.lng);
+    console.log(m.latitude)
+    console.log(m.longitude)
+    let name = m.storename;
     // let address = '腾讯微信总部';
     wx.getLocation({//获取当前经纬度
       type: 'wgs84', //返回可以用于wx.openLocation的经纬度，官方提示bug: iOS 6.3.30 type 参数不生效，只会返回 wgs84 类型的坐标信息  
