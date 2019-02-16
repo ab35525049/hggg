@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/login/login",
     "pages/index/index",
     "pages/logs/logs",
     "pages/main/main",
@@ -15,7 +16,8 @@
     "pages/index2/kuaidi/kuaidi",
     "pages/picker/picker",
     "pages/picker/pickerr/pickerr",
-    "pages/anm/anm"
+    "pages/anm/anm",
+    "pages/openid/openid"
   ],
   "window": {
     "backgroundTextStyle": "light",

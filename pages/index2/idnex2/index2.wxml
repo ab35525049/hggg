@@ -9,3 +9,7 @@
 </navigator>
 <view>name,{{name}}</view>
 <view>num,{{num}}</view>
+
+
+
+<button bindtap='bububu'>简单封装</button>

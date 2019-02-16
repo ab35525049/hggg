@@ -1,0 +1,2 @@
+<button open-type="getUserInfo" bindgetuserinfo="asd">获取标识</button>
+openid:{{openid}}

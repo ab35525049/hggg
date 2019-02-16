@@ -137,8 +137,6 @@ Page({
     console.log(m)
     let latitude = Number(m.lat);
     let longitude = Number(m.lng);
-    console.log(m.latitude)
-    console.log(m.longitude)
     let name = m.storename;
     // let address = '腾讯微信总部';
     wx.getLocation({//获取当前经纬度

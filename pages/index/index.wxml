@@ -21,18 +21,7 @@
         <navigator url="{{from_}}"><button bindtap="url_text_6" plain>表单提交</button></navigator>
         <navigator url="../picker/picker"><button bindtap="url_text_6" plain>picker</button></navigator>
         <navigator url="../anm/anm"><button bindtap="url_text_6" plain>anm</button></navigator>
+        <navigator url="../openid/openid"><button bindtap="url_text_6" plain>openid</button></navigator>
     </view>
   </view>
 </view>
-<block wx:if="{{get_user}}">
-<view class='get_user' animation="{{animation_user}}"> 
-  <view class="userinfo">
-    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 点击授权 </button>
-    <block wx:else>
-      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-      <button plain bindtap='get_user_'>欢迎进入</button>
-    </block>
-  </view>
-</view>
-</block>
